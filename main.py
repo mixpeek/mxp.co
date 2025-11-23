@@ -18,7 +18,7 @@ redirects_collection = db["redirects"]
 BASE_URL = "https://mixpeek.com/"
 
 
-@app.get("/{path}")
+@app.get("/{path:path}")
 def redirect_to_mp_apps(path: str):
     # Check if the path exists in the apps collection
     redirect = redirects_collection.find_one({"slug": path})
