@@ -15,7 +15,7 @@ client = MongoClient(MONGO_URI)
 db = client["mxp"]
 redirects_collection = db["redirects"]
 
-BASE_URL = "https://mixpeek.com/apps/"
+BASE_URL = "https://mixpeek.com/"
 
 
 @app.get("/{path}")
@@ -31,4 +31,4 @@ def redirect_to_mp_apps(path: str):
 
 @app.get("/")
 def redirect_to_mp_apps():
-    return RedirectResponse(url="https://mixpeek.com/apps")
+    return RedirectResponse(url="https://mixpeek.com")
