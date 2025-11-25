@@ -24,11 +24,11 @@ def redirect_to_mp_apps(path: str):
     redirect = redirects_collection.find_one({"slug": path})
     if redirect:
         target_url = redirect["target"]
-        return RedirectResponse(url=target_url)
+        return RedirectResponse(url=target_url, status_code=301)
     else:
-        return RedirectResponse(url="https://mixpeek.com/404")
+        return RedirectResponse(url="https://mixpeek.com/404", status_code=301)
 
 
 @app.get("/")
-def redirect_to_mp_apps():
-    return RedirectResponse(url="https://mixpeek.com")
+def redirect_to_homepage():
+    return RedirectResponse(url="https://mixpeek.com", status_code=301)
